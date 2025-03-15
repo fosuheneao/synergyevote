@@ -1,0 +1,27 @@
+from govote.models import Client, Domain
+# Create a new tenant
+tenant = Client(
+    schema_name="copevote_25", 
+    name="The Church of Pentecost Electronic Voting 2025",
+    location="Accra, Ghana", 
+    latitude="7.896", 
+    longitude="-3.679",
+    paid_until="2025-12-31",
+    on_trial=False
+)
+tenant.save()
+# Assign a domain
+domain = Domain(
+    domain="localhost",
+    tenant=tenant,
+    is_primary=True
+)
+domain.save()
+ 
+ 
+ python manage.py shell
+>>> from govote.models import Client, Domain
+>>> tenant = Client(schema_name="copevote_25", name="The Church of Pentecost Electronic Voting 2025",location="Accra, Ghana", latitude="7.896", longitude="-3.679",paid_until="2025-12-31",on_trial=False)
+>>> tenant.save()
+>>> domain=Domain(domain="localhost",tenant=tenant,is_primary=True)
+>>> domain.save()
