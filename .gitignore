@@ -16,3 +16,4 @@ media/
 # Ignore Django migrations cache
 */migrations/*.pyc
 */migrations/__pycache__/
+cls
